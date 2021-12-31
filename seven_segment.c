@@ -4,6 +4,8 @@
 
 int mat[20][10];
 
+// Function to clear the display matrix
+
 void reset(){
     for(int i = 0; i < 20; i++){
         for(int j = 0; j < 10; j++){
@@ -11,6 +13,8 @@ void reset(){
         }
     }
 }
+
+// Function to read the display matrix and print the '*' on the corresponding pixel
 
 void display()
 {
@@ -25,6 +29,9 @@ void display()
         printf("\n");
     }
 }
+
+// These functions from setA to setG set the corresponding segment in a simuulated seven segment display
+// by using set of pixels in the display matrix as the corresponding segment 
 
 void setA(){
     for(int i = 0; i < 10; i++){
@@ -68,6 +75,8 @@ void setG(){
         mat[9][i] = 1;
     }
 }
+
+// Function to set the corresponding segments for digits 0 to 9
 
 void digit(int x){
     switch(x){
@@ -155,10 +164,13 @@ void digit(int x){
 
 int main()
 {
-    system("clear");
-    reset();
+    system("clear"); // clear the console
+    reset(); //reset the display matrix 
+    
+    // Now display digits from 0 to 9 on console in the simulated seven segment dislay from 0 to 9
+    // in an interval of 2 seconds
 
-    while(1){
+    while(1){ 
         for(int i = 0; i < 10; i++){
             digit(i);
             display();
